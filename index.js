@@ -1,16 +1,15 @@
 let nombreUsuario = prompt("Ingrese nombre de usuario");
-function saludar(nombre) {
-  if (nombreUsuario === "") {
-    alert("Registrate aca");
-    nombreUsuario = prompt("Escriba su email");
-    prompt("Elija una contraseña");
-    alert("Te mandamos un correo a tu email para verificar la cuenta");
-  } else {
-    prompt("Contraseña");
-    alert("Bienvenido/a " + nombreUsuario);
-  }
+if (nombreUsuario === "") {
+  alert("Registrate aca");
+  let email = prompt("Escriba su email");
+  let contraseña = prompt("Elija una contraseña");
+  alert(
+    "Te mandamos un correo a tu email a " + email + " para verificar la cuenta"
+  );
+} else {
+  contraseña = prompt("Contraseña");
+  alert("Bienvenido/a " + nombreUsuario);
 }
-saludar(nombreUsuario);
 
 let banco = prompt("Ingresa tu banco");
 for (let cantidadCuotas = 2; cantidadCuotas <= 6; cantidadCuotas++) {
