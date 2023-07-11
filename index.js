@@ -80,23 +80,15 @@ class Usuario {
     console.log("HOLA " + this.nombre + " " + this.apellido);
   }
 }
-
-const usuario1 = new Usuario(
-  "Agustina",
-  "Avagnina",
-  "avag@gmail.com",
-  "avagagus1234"
+const usuarios = [];
+usuarios.push(
+  new Usuario("Agustina", "Avagnina", "avag@gmail.com", "avagagus1234")
+);
+usuarios.push(
+  new Usuario("Ezequiel", "Gonzalez", "ezegonz@gmail.com", "gonzalez1234")
 );
 
-const usuario2 = new Usuario(
-  "Ezequiel",
-  "Gonzalez",
-  "ezegonz@gmail.com",
-  "gonzalez1234"
-);
-
-usuario1.hablar();
-usuario2.hablar();
+for (const usuario of usuarios) usuario.hablar();
 
 class Producto {
   constructor(nombre, precio) {
@@ -115,16 +107,21 @@ class Producto {
   }
 }
 
-const producto1 = new Producto("Zapatillas", 5000);
-const producto2 = new Producto("Sandalias", 2000);
-const producto3 = new Producto("Botas", 8000);
+const productos = [
+  { nombre: "Zapatilla de cuero", precio: 5000 },
+  { nombre: "Zapatilla de tela", precio: 4000 },
+  { nombre: "Sandalia", precio: 3000 },
+  { nombre: "Bota", precio: 8000 },
+  { nombre: "Ojota", precio: 2000 },
+];
 
-producto1.sumarIva();
-producto2.sumarIva();
-producto3.descuento();
-producto3.vender();
+const zapas = productos.filter((producto) =>
+  producto.nombre.includes("Zapatilla")
+);
+console.log(zapas);
 
-console.log(producto3);
+let productoElegido = prompt("Ingrese el producto que quiere comprar ");
+console.log(productos.find((producto) => producto.nombre === productoElegido));
 
 const listaProductos = [];
 const cantidad = Number(
@@ -134,7 +131,7 @@ for (index = 0; index < cantidad; index++) {
   do {
     let entrada = prompt("Ingrese un producto para agregar al carrito");
     listaProductos.push(entrada);
-  } while (listaProductos == !"");
+  } while (listaProductos === "ESC");
 
   alert("Usted agrego " + listaProductos.join("-") + " al carrito");
 }
