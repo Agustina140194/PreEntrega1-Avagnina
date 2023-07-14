@@ -23,8 +23,6 @@ usuarios.push(nuevoUsuario);
 
 console.log(usuarios);
 
-//------------------------------------------------------------
-
 let banco = prompt("Ingresa tu banco");
 for (let cantidadCuotas = 2; cantidadCuotas <= 6; cantidadCuotas++) {
   if (banco === "Galicia" || banco === "galicia") {
@@ -112,7 +110,7 @@ const zapas = productos.filter((producto) =>
 );
 console.log(zapas);
 
-let productoElegido = prompt("Ingrese el producto que quiere comprar ");
+let productoElegido = prompt("Que producto estas buscando ");
 console.log(productos.find((producto) => producto.nombre === productoElegido));
 
 const listaProductos = [];
