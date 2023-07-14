@@ -1,4 +1,4 @@
-const usuarios = [];
+/* const usuarios = [];
 
 let nombreUsuario = prompt("Ingrese nombre de usuario");
 
@@ -39,34 +39,26 @@ for (let cantidadCuotas = 2; cantidadCuotas <= 6; cantidadCuotas++) {
   }
 }
 
-let barrio = prompt("Ingrese su barrio");
-while (barrio !== "") {
-  switch (barrio) {
-    case "Recoleta":
-      alert("El costo de envio es de $300");
-      break;
-    case "Palermo":
-      alert("El costo de envio es de $350");
-      break;
-    case "Colegiales":
-      alert("El costo de envio es de $400");
-      break;
-    case "Belgrano":
-      alert("El costo de envio es de $450");
-      break;
-    case "Nuñez":
-      alert("El costo de envio es de $500");
-      break;
-    case "Villa Urquiza":
-      alert("El costo de envio es de $550");
-      break;
-    case "Saavedra":
-      alert("El costo de envio es de $600");
-      break;
+let costosEnvios = [
+  { barrio: "Recoleta", envio: 300 },
+  { barrio: "Palermo", envio: 350 },
+  { barrio: "Colegiales", envio: 400 },
+  { barrio: "Belgrano", envio: 450 },
+  { barrio: "Retiro", envio: 500 },
+  { barrio: "Saavedra", envio: 550 },
+];
 
-    default:
-      alert("Estamos trabajando para enviar a tu zona");
-      break;
+let barrio = prompt("Ingrese el barrio ");
+
+while (barrio !== "ESC") {
+  let encontrado = costosEnvios.find(function (elemento) {
+    return elemento.barrio === barrio;
+  });
+
+  if (encontrado) {
+    alert("El costo de envio es de $" + encontrado.envio);
+  } else {
+    alert("Estamos trabajando para enviar a tu zona");
   }
   barrio = prompt("Ingrese otro barrio");
 }
@@ -78,7 +70,7 @@ do {
   direccion = prompt("Ingresa tu direccion");
   cp = Number(prompt("Codigo postal"));
   esc = prompt("Escriba ESC para finalizar");
-} while (esc !== "ESC");
+} while (esc !== "ESC"); */
 
 class Producto {
   constructor(nombre, precio) {
@@ -98,11 +90,11 @@ class Producto {
 }
 
 const productos = [
-  { nombre: "Zapatilla de cuero", precio: 5000 },
-  { nombre: "Zapatilla de tela", precio: 4000 },
-  { nombre: "Sandalia", precio: 3000 },
-  { nombre: "Bota", precio: 8000 },
-  { nombre: "Ojota", precio: 2000 },
+  new Producto("Zapatilla de cuero", 5000),
+  new Producto("Zapatilla de tela", 4000),
+  new Producto("Sandalia", 3000),
+  new Producto("Bota", 8000),
+  new Producto("Ojota", 2000),
 ];
 
 const zapas = productos.filter((producto) =>
@@ -110,18 +102,26 @@ const zapas = productos.filter((producto) =>
 );
 console.log(zapas);
 
-let productoElegido = prompt("Que producto estas buscando ");
-console.log(productos.find((producto) => producto.nombre === productoElegido));
+let productoElegido = prompt("Que producto estas buscando?");
+let productoEncontrado = productos.find(
+  (producto) => producto.nombre === productoElegido
+);
+if (productoEncontrado) {
+  console.log(productoEncontrado);
+} else {
+  console.log("El producto no se encontro");
+}
 
 const listaProductos = [];
 const cantidad = Number(
   prompt("Ingrese cuantos productos vas a agregar al carrito")
 );
-for (index = 0; index < cantidad; index++) {
-  do {
-    let entrada = prompt("Ingrese un producto para agregar al carrito");
-    listaProductos.push(entrada);
-  } while (listaProductos === "ESC");
-
-  alert("Usted agrego " + listaProductos.join("-") + " al carrito");
+for (let index = 0; index < cantidad; index++) {
+  let entrada = prompt("Ingrese un producto para agregar al carrito");
+  if (entrada === "ESC") {
+    break;
+  }
+  listaProductos.push(entrada);
 }
+
+alert("Usted agrego " + listaProductos.join("-") + " al carrito");
