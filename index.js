@@ -1,4 +1,4 @@
-/* const usuarios = [];
+const usuarios = [];
 
 let nombreUsuario = prompt("Ingrese nombre de usuario");
 
@@ -70,7 +70,7 @@ do {
   direccion = prompt("Ingresa tu direccion");
   cp = Number(prompt("Codigo postal"));
   esc = prompt("Escriba ESC para finalizar");
-} while (esc !== "ESC"); */
+} while (esc !== "ESC");
 
 class Producto {
   constructor(nombre, precio) {
