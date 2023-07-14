@@ -1,3 +1,5 @@
+const usuarios = [];
+
 let nombreUsuario = prompt("Ingrese nombre de usuario");
 
 if (nombreUsuario === "") {
@@ -11,6 +13,17 @@ if (nombreUsuario === "") {
   contraseña = prompt("Contraseña");
   alert("Bienvenido/a " + nombreUsuario.toLocaleUpperCase());
 }
+
+let nuevoUsuario = {
+  nombreUsuario: nombreUsuario,
+  contraseña: contraseña,
+};
+
+usuarios.push(nuevoUsuario);
+
+console.log(usuarios);
+
+//------------------------------------------------------------
 
 let banco = prompt("Ingresa tu banco");
 for (let cantidadCuotas = 2; cantidadCuotas <= 6; cantidadCuotas++) {
@@ -68,27 +81,6 @@ do {
   cp = Number(prompt("Codigo postal"));
   esc = prompt("Escriba ESC para finalizar");
 } while (esc !== "ESC");
-
-class Usuario {
-  constructor(nombre, apellido, email, contraseña) {
-    (this.nombre = nombre.toUpperCase()),
-      (this.apellido = apellido.toUpperCase()),
-      (this.email = email),
-      (this.contraseña = contraseña);
-  }
-  hablar() {
-    console.log("HOLA " + this.nombre + " " + this.apellido);
-  }
-}
-const usuarios = [];
-usuarios.push(
-  new Usuario("Agustina", "Avagnina", "avag@gmail.com", "avagagus1234")
-);
-usuarios.push(
-  new Usuario("Ezequiel", "Gonzalez", "ezegonz@gmail.com", "gonzalez1234")
-);
-
-for (const usuario of usuarios) usuario.hablar();
 
 class Producto {
   constructor(nombre, precio) {
