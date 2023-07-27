@@ -28,13 +28,6 @@ function agregarAlCarrito(id) {
   actualizarCarritoHeader();
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("eliminar-producto")) {
-    const productoId = event.target.getAttribute("data-id");
-    eliminarDelCarrito(productoId);
-  }
-});
-
 function actualizarCarritoHeader() {
   const carritoTotal = document.getElementById("carrito-total");
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
